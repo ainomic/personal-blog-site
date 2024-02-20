@@ -42,4 +42,12 @@ def read_blog(request,id):
     bl=blogs.objects.get(id=id)
     return render(request,"readblogs.html",{"bl":bl})
 
-
+def add_content(request):
+    if request.method=="POST":
+        tle=request.POST.get("title")
+        descrip=request.POST.get("description")
+        wrds=len(descrip.split())
+        bl=blogs(title=tle,words=wrds,desc=descrip)
+        bl.save()
+        return redirect("/")
+    return render(request,"add.html")
