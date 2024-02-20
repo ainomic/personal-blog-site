@@ -14,3 +14,9 @@ Personal blog site using Python + Django framework
 1. Apply migrations: `python manage.py migrate`
 2. Run the development server: `python manage.py runserver`
 3. Access the website at `http://localhost:8000` in your web browser.
+
+## Usage
+
+1. Sign up for an account if you're a new user, or log in with your existing credentials.
+2. Navigate to the homepage to view a list of blog post titles.
+3. Click on a title to read the full blog post.
