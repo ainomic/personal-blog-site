@@ -51,3 +51,15 @@ def add_content(request):
         bl.save()
         return redirect("/")
     return render(request,"add.html")
+
+def update_content(request,id):
+    if request.method=="POST":
+        tle=request.POST.get("title")
+        descrip=request.POST.get("description")
+        bl1=blogs.objects.get(id=id)
+        bl1.title=tle
+        bl1.desc=descrip
+        bl1.save()
+        return redirect("/readblog/" + str(id))
+    bl=blogs.objects.get(id=id)
+    return render(request,"update.html",{"bl":bl})
