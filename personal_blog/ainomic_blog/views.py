@@ -1,12 +1,14 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from ainomic_blog.models import blogs
 
 # Create your views here.
 def index(request):
     if request.user.is_anonymous:
         return redirect("/login")
-    return render(request,"dashboard.html")
+    bl=blogs.objects.order_by('-id')
+    return render(request,"dashboard.html",{"bl":bl})
 
 def login_user(request):
     context={"message":"Not valid"}
@@ -35,3 +37,9 @@ def sign_user(request):
 def logout_user(request):
     logout(request)
     return redirect("/login")
+
+def read_blog(request,id):
+    bl=blogs.objects.get(id=id)
+    return render(request,"readblogs.html",{"bl":bl})
+
+
