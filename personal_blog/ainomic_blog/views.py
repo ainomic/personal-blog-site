@@ -8,7 +8,7 @@ def index(request):
         return redirect("/login")
     return render(request,"blogpage.html")
 
-def loginUser(request):
+def login_user(request):
     context={"message":"Not valid"}
     if request.method=="POST":
         email=request.POST.get("email")
@@ -23,7 +23,7 @@ def loginUser(request):
             return render(request,"login.html",context)
     return render(request,"login.html")
 
-def signUser(request):
+def sign_user(request):
     if request.method=="POST":
         email=request.POST.get("email")
         password=request.POST.get("password")
@@ -32,6 +32,6 @@ def signUser(request):
         return redirect("/login")
     return render(request,"signup.html")
 
-def logoutUser(request):
+def logout_user(request):
     logout(request)
     return redirect("/login")
