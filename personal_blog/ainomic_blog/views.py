@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 def index(request):
     if request.user.is_anonymous:
         return redirect("/login")
-    return render(request,"blogpage.html")
+    return render(request,"dashboard.html")
 
 def login_user(request):
     context={"message":"Not valid"}
