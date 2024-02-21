@@ -8,4 +8,4 @@ urlpatterns = [
     path('signup',views.sign_user,name='signup'),
     path('logout',views.logout_user,name='logout'),
     path('blogs/<int:id>',views.view_blog,name='viewblog'),
-]
+
