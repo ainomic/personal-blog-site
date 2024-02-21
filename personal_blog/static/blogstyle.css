@@ -10,3 +10,13 @@ footer {
   footer p {
     margin-bottom: 0; /* Remove bottom margin for the paragraph */
   }
+  .logo{
+    height:50px;
+    width:50px;
+    object-fit: cover;
+  }
+  .custom-button{
+    color: white;
+    text-decoration: none;
+    float: right;
+  }

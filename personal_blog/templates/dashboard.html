@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row">
         <div class="p-3 col-12  my-3">
-            <button type="button" class="btn btn-primary" style="float:right"><a href="#" style="color:white;text-decoration:none">+ Create</a></button>
-        </div>
+          <a href="#" class="custom-button"><button type="button" class="btn btn-primary">+ Create</button></a>
+          </div>
       <div class="col-12">
         <div class="table-responsive">
           <table class="table my-3">
@@ -19,10 +19,10 @@
               </tr>
             </thead>
             <tbody>
-                {% for x in bl %}
+                {% for x in blog_list %}
               <tr>
                 <th scope="row">{{forloop.counter}}</th>
-                <td><a href="/readblog/{{x.id}}">{{x.title}}</a></td>
+                <td><a href="/blogs/{{x.id}}">{{x.title}}</a></td>
                 <td>{{x.words}}</td>
                 <td>{{x.date_created}}</td>
                 <td>{{x.date_updated}}</td>
