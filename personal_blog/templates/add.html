@@ -2,7 +2,7 @@
 {% block body %}
 <div class="container" style="max-width:600px;">
     <h1 class="mt-5">Add Blog Content</h1>
-    <form method="post" action="/add">
+    <form method="post">
         {% csrf_token %}
       <div class="form-group">
         <label for="title">Title:</label>

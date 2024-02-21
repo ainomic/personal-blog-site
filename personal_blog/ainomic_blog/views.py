@@ -1,14 +1,14 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-from ainomic_blog.models import blogs
+from ainomic_blog.models import Blog
 
 # Create your views here.
 def index(request):
     if request.user.is_anonymous:
         return redirect("/login")
-    bl=blogs.objects.order_by('-id')
-    return render(request,"dashboard.html",{"bl":bl})
+    blog_list=Blog.objects.order_by('-date_updated')
+    return render(request,"dashboard.html",{"blog_list":blog_list})
 
 def login_user(request):
     context={"message":"Not valid"}
@@ -38,17 +38,17 @@ def logout_user(request):
     logout(request)
     return redirect("/login")
 
-def read_blog(request,id):
-    bl=blogs.objects.get(id=id)
-    return render(request,"readblogs.html",{"bl":bl})
+def view_blog(request,id):
+    blog_list=Blog.objects.get(id=id)
+    return render(request,"view_blog.html",{"blog_list":blog_list})
 
-def add_content(request):
+def add_blog(request):
     if request.method=="POST":
-        tle=request.POST.get("title")
-        descrip=request.POST.get("description")
-        wrds=len(descrip.split())
-        bl=blogs(title=tle,words=wrds,desc=descrip)
-        bl.save()
+        blog_title=request.POST.get("title")
+        blog_desc=request.POST.get("description")
+        wrds=len(blog_desc.split())
+        create_blog=Blog(title=blog_title,words=wrds,desc=blog_desc)
+        create_blog.save()
         return redirect("/")
     return render(request,"add.html")
 

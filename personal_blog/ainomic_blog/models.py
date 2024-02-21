@@ -1,8 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class blogs(models.Model):
-    id = models.AutoField(primary_key=True),
+class Blog(models.Model):
     title=models.CharField(max_length=100)
     words=models.IntegerField()
     date_created=models.DateTimeField(auto_now_add=True)
