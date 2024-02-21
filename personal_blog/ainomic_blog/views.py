@@ -39,8 +39,11 @@ def logout_user(request):
     return redirect("/login")
 
 def view_blog(request,id):
-    blog_list=Blog.objects.get(id=id)
-    return render(request,"view_blog.html",{"blog_list":blog_list})
+    try:
+        blog_list=Blog.objects.get(id=id)
+        return render(request,"view_blog.html",{"blog_list":blog_list})
+    except:
+        return render(request,"errorpage.html")
 
 def add_blog(request):
     if request.method=="POST":
@@ -56,16 +59,16 @@ def update_content(request,id):
     if request.method=="POST":
         tle=request.POST.get("title")
         descrip=request.POST.get("description")
-        bl1=blogs.objects.get(id=id)
+        bl1=Blog.objects.get(id=id)
         bl1.title=tle
         bl1.desc=descrip
         bl1.save()
         return redirect("/readblog/" + str(id))
-    bl=blogs.objects.get(id=id)
+    bl=Blog.objects.get(id=id)
     return render(request,"update.html",{"bl":bl})
 
 
 def delete_blog(request,id):
-    bl = blogs.objects.get(id=id)
-    bl.delete()
+    blog_list = Blog.objects.get(id=id)
+    blog_list.delete()
     return redirect("/")

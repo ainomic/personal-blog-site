@@ -10,5 +10,5 @@ urlpatterns = [
     path('blogs/add',views.add_blog,name='add_blog'),
     path('blogs/<int:id>',views.view_blog,name='view_blog'),
     path('update/<int:id>',views.update_content,name='update'),
-    path('delete/<int:id>',views.delete_blog,name='delete'),
+    path('blogs/delete/<int:id>',views.delete_blog,name='delete_blog'),
 ]
