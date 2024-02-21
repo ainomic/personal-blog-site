@@ -42,4 +42,12 @@ def view_blog(request,id):
     blog_list=Blog.objects.get(id=id)
     return render(request,"view_blog.html",{"blog_list":blog_list})
 
-
+def add_blog(request):
+    if request.method=="POST":
+        blog_title=request.POST.get("title")
+        blog_desc=request.POST.get("description")
+        wrds=len(blog_desc.split())
+        create_blog=Blog(title=blog_title,words=wrds,desc=blog_desc)
+        create_blog.save()
+        return redirect("/")
+    return render(request,"add.html")
