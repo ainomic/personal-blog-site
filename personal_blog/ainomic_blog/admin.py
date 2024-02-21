@@ -1,5 +1,5 @@
 from django.contrib import admin
-from ainomic_blog.models import blogs
+from ainomic_blog.models import Blog
 
 # Register your models here.
-admin.site.register(blogs)
+admin.site.register(Blog)
