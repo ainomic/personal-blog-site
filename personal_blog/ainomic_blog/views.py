@@ -63,3 +63,9 @@ def update_content(request,id):
         return redirect("/readblog/" + str(id))
     bl=blogs.objects.get(id=id)
     return render(request,"update.html",{"bl":bl})
+
+
+def delete_blog(request,id):
+    bl = blogs.objects.get(id=id)
+    bl.delete()
+    return redirect("/")
