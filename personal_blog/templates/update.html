@@ -2,15 +2,15 @@
 {% block body %}
 <div class="container" style="max-width:600px;">
     <h1 class="mt-5">Update Blog Content</h1>
-    <form method="post" action="/update/{{bl.id}}">
+    <form method="post">
         {% csrf_token %}
       <div class="form-group">
         <label for="title">Title:</label>
-        <input type="text" class="form-control" id="title" name="title" value="{{bl.title}}">
+        <input type="text" class="form-control" id="title" name="title" value="{{blog_list.title}}">
       </div>
       <div class="form-group py-3">
         <label for="description">Description:</label>
-        <textarea class="form-control" id="description" rows="5" name="description">{{bl.desc}}</textarea>
+        <textarea class="form-control" id="description" rows="5" name="description">{{blog_list.desc}}</textarea>
       </div>
       <div class="">
       <button type="submit" class="btn btn-primary">Submit</button>

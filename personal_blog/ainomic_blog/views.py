@@ -52,14 +52,14 @@ def add_blog(request):
         return redirect("/")
     return render(request,"add.html")
 
-def update_content(request,id):
+def update_blog(request,id):
     if request.method=="POST":
-        tle=request.POST.get("title")
-        descrip=request.POST.get("description")
-        bl1=blogs.objects.get(id=id)
-        bl1.title=tle
-        bl1.desc=descrip
-        bl1.save()
-        return redirect("/readblog/" + str(id))
-    bl=blogs.objects.get(id=id)
-    return render(request,"update.html",{"bl":bl})
+        updated_title=request.POST.get("title")
+        updated_desc=request.POST.get("description")
+        updated_blog=Blog.objects.get(id=id)
+        updated_blog.title=updated_title
+        updated_blog.desc=updated_desc
+        updated_blog.save()
+        return redirect("/blogs/" + str(id))
+    blog_list=Blog.objects.get(id=id)
+    return render(request,"update.html",{"blog_list":blog_list})
