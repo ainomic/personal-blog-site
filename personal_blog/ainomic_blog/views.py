@@ -69,6 +69,8 @@ def update_blog(request,id):
 
 
 def delete_blog(request,id):
-    blog_list = Blog.objects.get(id=id)
-    blog_list.delete()
-    return redirect("/")
+    try:
+        blog_list=Blog.objects.get(id=id)
+        return render(request,"delete_blog.html",{"blog_list":blog_list})
+    except:
+        return render(request,"errorpage.html")
