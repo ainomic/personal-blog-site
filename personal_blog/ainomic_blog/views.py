@@ -63,7 +63,7 @@ def update_blog(request,id):
         updated_blog.title=updated_title
         updated_blog.desc=updated_desc
         updated_blog.save()
-        return redirect("/blogs/" + str(id))
+        return redirect("/")
     blog_list=Blog.objects.get(id=id)
     return render(request,"update.html",{"blog_list":blog_list})
 
