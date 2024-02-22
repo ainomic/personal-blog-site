@@ -28,8 +28,8 @@
                 <td class="py-3">{{x.words}}</td>
                 <td class="py-3">{{x.date_created}}</td>
                 <td class="py-3">{{x.date_updated}}</td>
-                <td><a href="{% url 'update_blog' x.id %}"><button type="button" class="btn btn-primary">Edit</button></a>
-                  <a href="" id="deleteLink" onclick="confirmDelete('{{x.id}}')"><button type="button" class="btn btn-danger">Delete</button></a>
+                <td class="py-3"><a href="{% url 'update_blog' x.id %}" class="px-3"><i class="fa fa-pencil fs-3"></i></a>
+                  <a href="" id="deleteLink" onclick="confirmDelete('{{x.id}}')"><i class="fa fa-trash fs-3 text-danger"></i></a>
                 </td>
               </tr>
               {% endfor %}
