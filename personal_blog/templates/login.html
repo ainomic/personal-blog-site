@@ -7,7 +7,7 @@
         alert("Please enter valid username & password!");
     {% endif %}
     </script>
-    <form method="POST" action="/login">
+    <form method="POST" action="{% url "login" %}">
         {% csrf_token %}
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
@@ -20,7 +20,7 @@
         <button type="submit" class="btn btn-primary btn-block">Login</button>
     </form>
     <div class="text-center mt-3">
-        <p>Not registered yet? <a href="/signup">Register here</a></p>
+        <p>Not registered yet? <a href="{% url "signup" %}">Register here</a></p>
     </div>
 </div>
 {% endblock body %}
