@@ -59,9 +59,11 @@ def update_blog(request,id):
     if request.method=="POST":
         updated_title=request.POST.get("title")
         updated_desc=request.POST.get("description")
+        updated_words=len(updated_desc.split())
         updated_blog=Blog.objects.get(id=id)
         updated_blog.title=updated_title
         updated_blog.desc=updated_desc
+        updated_blog.words=updated_words
         updated_blog.save()
         return redirect("/")
     blog_list=Blog.objects.get(id=id)
