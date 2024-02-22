@@ -51,3 +51,15 @@ def add_blog(request):
         create_blog.save()
         return redirect("/")
     return render(request,"add.html")
+
+def update_blog(request,id):
+    if request.method=="POST":
+        updated_title=request.POST.get("title")
+        updated_desc=request.POST.get("description")
+        updated_blog=Blog.objects.get(id=id)
+        updated_blog.title=updated_title
+        updated_blog.desc=updated_desc
+        updated_blog.save()
+        return redirect("/blogs/" + str(id))
+    blog_list=Blog.objects.get(id=id)
+    return render(request,"update.html",{"blog_list":blog_list})
