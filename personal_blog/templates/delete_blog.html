@@ -2,8 +2,14 @@
 {% block body %}
 
 <div class="container py-5">
+    <h2>Blog (ID: {{blog_list.id}} )</h2>
+    <hr>
+    <h4>Title</h4>
 <p><strong>{{blog_list.title}}</strong></p>
+<h4>Content</h4>
 <p class="justify-content-*">{{blog_list.desc}}</p>
+<a href="{% url 'permanent_delete' blog_list.id %}"><button type="button" class="btn btn-danger">Confirm Delete?</button></a>
+<a href="{% url 'home' %}"><button type="button" class="btn btn-outline-primary">Cancel</button></a>
 </div>
 
 
