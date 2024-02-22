@@ -5,9 +5,12 @@
 <div class="container py-5">
 <p><strong>{{blog_list.title}}</strong></p>
 <p class="justify-content-*">{{blog_list.desc}}</p>
+<a href="{% url 'update_blog' blog_list.id %}"><button type="button" class="btn btn-primary">Update</button></a>
 <a href="" id="deleteLink" onclick="confirmDelete('{{blog_list.id}}')"><button type="button" class="btn btn-danger">Delete</button></a>
 </div>
 
 <script src="{% static 'js/script.js' %}"></script>
+
+
 
 {% endblock body %}
