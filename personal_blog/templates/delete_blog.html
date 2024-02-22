@@ -8,7 +8,8 @@
 <p><strong>{{blog_list.title}}</strong></p>
 <h4>Content</h4>
 <p class="justify-content-*">{{blog_list.desc}}</p>
-<a href="{% url 'home' %}"><button type="button" class="btn btn-primary"><i class="fa fa-angle-double-left"> Back to Blogs</i></button></a>
+<a href="{% url 'permanent_delete' blog_list.id %}"><button type="button" class="btn btn-danger">Confirm Delete?</button></a>
+<a href="{% url 'home' %}"><button type="button" class="btn btn-outline-primary">Cancel</button></a>
 </div>
 
 

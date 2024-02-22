@@ -63,12 +63,19 @@ def update_blog(request,id):
         updated_blog.title=updated_title
         updated_blog.desc=updated_desc
         updated_blog.save()
-        return redirect("/blogs/" + str(id))
+        return redirect("/")
     blog_list=Blog.objects.get(id=id)
     return render(request,"update.html",{"blog_list":blog_list})
 
 
 def delete_blog(request,id):
-    blog_list = Blog.objects.get(id=id)
+    try:
+        blog_list=Blog.objects.get(id=id)
+        return render(request,"delete_blog.html",{"blog_list":blog_list})
+    except:
+        return render(request,"errorpage.html")
+
+def permanent_delete(request,id):
+    blog_list=Blog.objects.get(id=id)
     blog_list.delete()
     return redirect("/")
