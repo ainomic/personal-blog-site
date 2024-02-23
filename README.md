@@ -11,6 +11,15 @@ Personal blog site using Python + Django framework
 1. Then change directory to the "personal_blog" folder
 1. Run command to create an app: `python manage.py startapp "ainomic_blog"`
 
+## Setting up MySQL Database
+
+1. Ensure MySQL Server installed on your local machine. 
+2. Use pip to install the MySQL client for Python, which will allow Django to interact with the MySQL database: `pip install mysqlclient`
+3. Create a new database: `CREATE DATABASE blogdb;`
+4. Navigate to the `settings.py` file located inside the "personal_blog" directory.
+5. Within the `DATABASES` section, update the configuration to use MySQL as the database backend. Replace 'username' and 'password' with your MySQL credentials.
+
+
 ## Run website application
 
 1. Make migrations: `python manage.py makemigrations`
