@@ -11,12 +11,21 @@ Personal blog site using Python + Django framework
 1. Then change directory to the "personal_blog" folder
 1. Run command to create an app: `python manage.py startapp "ainomic_blog"`
 
+## Setting up MySQL Database
+
+1. Ensure MySQL Server installed on your local machine. 
+2. Use pip to install the MySQL client for Python, which will allow Django to interact with the MySQL database: `pip install mysqlclient`
+3. Create a new database: `CREATE DATABASE blogdb;`
+4. Navigate to the `settings.py` file located inside the "personal_blog" directory.
+5. Within the `DATABASES` section, update the configuration to use MySQL as the database backend. Replace 'username' and 'password' with your MySQL credentials.
+
+
 ## Run website application
 
 1. Make migrations: `python manage.py makemigrations`
 1. Apply migrations: `python manage.py migrate`
-2. Run the development server: `python manage.py runserver`
-3. Access the website at `http://localhost:8000` in your web browser.
+1. Run the development server: `python manage.py runserver`
+1. Access the website at `http://localhost:8000` in your web browser.
 
 ## Usage
 
@@ -33,7 +42,7 @@ Personal blog site using Python + Django framework
 ## Update Blog
 
 1. Upon accessing the homepage, you'll see a list of existing blog posts.
-2. Click on the "Edit" button of the blog post you wish to update.
+2. Click on the 'Pencil' icon in the 'Actions' section next to the blog post you wish to update.
 3. You'll be directed to a page where you can view the blog post content and update it.
 4. Edit the content of the blog post as desired.
 5. Click the "Submit" button to update the blog post.
@@ -41,6 +50,7 @@ Personal blog site using Python + Django framework
 
 ## Delete Blog
 
-1. Click the "Delete" button.
-2. Confirm the deletion when prompted.
-3. The blog post will be removed from the website, and users will no longer see it listed on the homepage.
+1. Click on the 'Trash' icon in the 'Actions' section next to the blog post you wish to delete.
+2. You'll be directed to a page where you can view the blog post content.
+3. Click the "Confirm Delete" button to delete the blog post.
+4. The changes will be reflected on the website, and users will no longer be able to view the deleted blog post on the website.
